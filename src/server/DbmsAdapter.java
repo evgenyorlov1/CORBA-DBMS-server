@@ -104,8 +104,9 @@ public class DbmsAdapter {
     //TEST
     //Tname = Tname;Key
     public String sort(String DBname, String Tname, int num) {
-        ArrayList<ArrayList<String[]>> sort = dbms.sort(DBname, Tname, Tname, num);
-        String json = gson.toJson(sort, new TypeToken<ArrayList<String[]>>(){}.getType());
+        String[] tokens = Tname.split(";");          
+        ArrayList<ArrayList<String[]>> sort = dbms.sort(DBname, tokens[0].trim(), tokens[1].trim(), num);
+        String json = gson.toJson(sort, new TypeToken<ArrayList<ArrayList<String[]>>>(){}.getType());
         return json;
     }
 

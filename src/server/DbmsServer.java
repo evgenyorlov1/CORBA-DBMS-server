@@ -16,7 +16,7 @@ public class DbmsServer {
     public static void main(String args[]) { 
         try{                
             String[] properities = {"-ORBInitialPort", "1050"};            
-            ORB orb = ORB.init(properities, null);    //args          
+            ORB orb = ORB.init(properities, null);    //args                      
             DbmsServant helloRef = new DbmsServant(); 
             orb.connect(helloRef);         
             org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");        
@@ -24,7 +24,7 @@ public class DbmsServer {
             NameComponent nc = new NameComponent("Hello", ""); 
             NameComponent path[] = {nc}; 
             ncRef.rebind(path, helloRef); 
-            
+            System.out.println("Server started...");
             java.lang.Object sync = new java.lang.Object(); 
             synchronized(sync){ 
               sync.wait(); 
