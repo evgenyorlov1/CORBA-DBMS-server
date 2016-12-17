@@ -1,0 +1,25 @@
+module DbmsAPP
+{
+    interface Dbms 
+    {
+        string hello();
+        string show_dbs();
+        string show_tables(in string DBname);
+        void drop_database(in string DBname);
+        void drop_table(in string DBname, in string Tname);
+        void create_database(in string DBname);
+        void create_table(in string DBname, in string Tname, in string keyType);
+        boolean register(in string user, in string password);
+        boolean login(in string user, in string password);
+        string find(in string DBname, in string Tname);
+        boolean is_unique_name(in string DBname);
+        string get_metadata(in string DBname, in string Tname);
+        string limit(in string DBname, in string Tname, in long num);
+        string skip(in string DBname, in string Tname, in long num);
+        string sort(in string DBname, in string Tname, in long num);
+        long count(in string DBname, in string Tname);
+        void insert(in string DBname, in string Tname, in string keyValue);
+        void update(in string id, in string keyVal, in string DBname, in string Tname);
+        void remove(in string DBname, in string Tname, in string id);   
+    };
+};
